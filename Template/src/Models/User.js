@@ -158,7 +158,7 @@ export class User {
 	removeComment(commentToRemove, vehicleToRemoveComment) {
 		// TODO: Uncomment this when you have completed the implementation of all vehicles.
 
-		// if (this.#username !== commentToRemove.author.username) {
+		// if (this.#username !== commentToRemove.author) {
 		// 	throw new Error("You are not the author of the comment you are trying to remove!");
 		// }
 

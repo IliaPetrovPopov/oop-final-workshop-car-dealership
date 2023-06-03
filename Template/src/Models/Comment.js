@@ -54,7 +54,7 @@ export class Comment {
 
 		builder.push("----------");
 		builder.push(`${this.content}`);
-		builder.push(`User: ${this.author.username}`);
+		builder.push(`User: ${this.author}`);
 		builder.push("----------");
 
 		return builder.join("\n");
