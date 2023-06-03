@@ -1,4 +1,10 @@
-export class Truck {
+import { Vehicle } from './Vehicle.js';
+
+
+export class Truck extends Vehicle {
+	#weightCapacity;
+	#vehicleSpecifics;
+
 	static WEIGHT_CAPACITY_MIN_VALUE = 1;
 	static WEIGHT_CAPACITY_MAX_VALUE = 100;
 	static WEIGHT_CAPACITY_ERROR_MESSAGE = `Weight capacity must be between ${Truck.WEIGHT_CAPACITY_MIN_VALUE} and ${Truck.WEIGHT_CAPACITY_MAX_VALUE}!`;
@@ -13,8 +19,33 @@ export class Truck {
 	 * @param {number} weightCapacity - The truck's weight capacity.
 	 */
 	constructor(make, model, price, weightCapacity) {
-		// TODO: Implement the constructor
+	  super(make, model, price);
+	  this.determineTypeAndWheels();
+	  this.weightCapacity = weightCapacity;
+	  this.#vehicleSpecifics = `Weight Capacity: ${this.#weightCapacity}t`;
 	}
 
-	// TODO: Implement rest of the class
+	get weightCapacity() {
+	  return this.#weightCapacity;
+	}
+
+	set weightCapacity(newWC) {
+	  if (!newWC && newWC !== 0) {
+	    throw new Error('Enter valid weight capacity!');
+	  }
+
+	  if (newWC < Truck.WEIGHT_CAPACITY_MIN_VALUE || newWC > Truck.WEIGHT_CAPACITY_MAX_VALUE) {
+	    throw new Error(Truck.WEIGHT_CAPACITY_ERROR_MESSAGE);
+	  }
+
+	  this.#weightCapacity = newWC;
+	}
+
+	get vehicleSpecifics() {
+	  return this.#vehicleSpecifics;
+	  }
+
+	additionalInfo() {
+	  return this.#vehicleSpecifics;
+	}
 }
