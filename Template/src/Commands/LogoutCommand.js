@@ -1,8 +1,8 @@
 ﻿import { BaseCommand } from './BaseCommand.js';
 
 export class LogoutCommand extends BaseCommand {
-	constructor(repository, commandParameters) {
-		super(repository, commandParameters);
+	constructor(commandParameters, repository) {
+		super(commandParameters, repository);
 	}
 
 	get requireLogin() {

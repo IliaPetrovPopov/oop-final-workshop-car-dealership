@@ -36,7 +36,7 @@ export class CommandFactory {
 			case CommandType.Login:
 				return new LoginCommand(commandParameters, this.#repository);
 			case CommandType.Logout:
-				return new LogoutCommand(this.#repository);
+				return new LogoutCommand(commandParameters, this.#repository);
 			case CommandType.AddVehicle:
 				return new AddVehicleCommand(commandParameters, this.#repository);
 			case CommandType.RemoveVehicle:

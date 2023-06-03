@@ -127,7 +127,7 @@ export class BaseCommand {
 	}
 
 	parseRoleParameter(value, parameterName) {
-		const role = Role[value.toUpperCase()];
+		const role = Role[value];
 		if (role !== undefined) {
 			return role;
 		}
@@ -135,7 +135,7 @@ export class BaseCommand {
 	}
 
 	parseVehicleTypeParameter(value, parameterName) {
-		const vehicleType = VehicleType[value.toUpperCase()];
+		const vehicleType = VehicleType[value];
 		if (vehicleType !== undefined) {
 			return vehicleType;
 		}
