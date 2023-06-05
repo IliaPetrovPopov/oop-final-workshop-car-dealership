@@ -106,11 +106,10 @@ export class User {
 
 	/**
 	 * @description Adds a vehicle to the user's vehicles
-	 * 
+	 * @param {Vehicle} vehicle
 	*/
 	// TODO: This is intentionally commented out. Otherwise the AddVehicleCommand will give errors.
 	// After you have finished implementing the Vehicle class, you can add it back, after the description.
-	// * @param {Vehicle} vehicle
 	addVehicle(vehicle) {
 		if (this.role === Role.Admin) {
 			throw new Error(User.ADMIN_CANNOT_ADD_VEHICLES);
@@ -144,7 +143,7 @@ export class User {
 	addComment(commentToAdd, vehicleToAddComment) {
 		// TODO: Uncomment this when you have completed the implementation of all vehicles.
 
-		// vehicleToAddComment.addComment(commentToAdd);
+		vehicleToAddComment.addComment(commentToAdd);
 	}
 
 	/**
@@ -158,11 +157,11 @@ export class User {
 	removeComment(commentToRemove, vehicleToRemoveComment) {
 		// TODO: Uncomment this when you have completed the implementation of all vehicles.
 
-		// if (this.#username !== commentToRemove.author) {
-		// 	throw new Error("You are not the author of the comment you are trying to remove!");
-		// }
+		if (this.#username !== commentToRemove.author) {
+			throw new Error("You are not the author of the comment you are trying to remove!");
+		}
 
-		// vehicleToRemoveComment.removeComment(commentToRemove);
+		vehicleToRemoveComment.removeComment(commentToRemove);
 	}
 
 	printVehicles() {
@@ -171,17 +170,17 @@ export class User {
 
 		// TODO: Uncomment this when you have completed the implementation of all vehicles.
 
-		// builder.push(`--USER ${this.#username}--`);
+		builder.push(`--USER ${this.#username}--`);
 
-		// if (this.#vehicles.length === 0) {
-		// 	builder.push("--NO VEHICLES--");
-		// } else {
-		// 	let counter = 1;
-		// 	for (const vehicle of this.#vehicles) {
-		// 		builder.push(`${counter}. ${vehicle.print()}`);
-		// 		counter++;
-		// 	}
-		// }
+		if (this.#vehicles.length === 0) {
+			builder.push("--NO VEHICLES--");
+		} else {
+			let counter = 1;
+			for (const vehicle of this.#vehicles) {
+				builder.push(`${counter}. ${vehicle.print()}`);
+				counter++;
+			}
+		}
 
 		return builder.join("\n");
 	}
