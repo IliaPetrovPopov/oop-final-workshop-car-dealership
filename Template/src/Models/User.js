@@ -212,7 +212,13 @@ export class User {
 	 * @throws {Error} If the username is not between 3 and 20 characters long
 	 */
 	#setUsername(username) {
-		// TODO: Implement validation
+		if (username.length < User.USERNAME_MIN_LENGTH || username.length > User.USERNAME_MAX_LENGTH) {
+			throw new Error(User.USERNAME_LENGTH_ERROR_MESSAGE);
+		  }
+		  const specialChars = /[`!@#$%^&*()+\-=\[\]{};':"\\|,.<>\/?~]/;
+		  if (specialChars.test(username)) {
+			throw new Error('Username contains invalid symbols!');
+		  }
 
 		this.#username = username;
 	}
@@ -225,7 +231,9 @@ export class User {
 	 * @throws {Error} If the first name is not between 3 and 20 characters long
 	 */
 	#setFirstName(firstName) {
-		// TODO: Implement validation
+		if (firstName.length < User.FIRSTNAME_MIN_LENGTH || firstName.length > User.FIRSTNAME_MAX_LENGTH) {
+			throw new Error(User.FIRSTNAME_LENGTH_ERROR_MESSAGE);
+		  }
 
 		this.#firstName = firstName;
 	}
@@ -238,7 +246,9 @@ export class User {
 	 * @throws {Error} If the first name is not between 3 and 20 characters long
 	 */
 	#setLastName(lastName) {
-		// TODO: Implement validation
+		if (lastName.length < User.LASTNAME_MIN_LENGTH || lastName.length > User.LASTNAME_MAX_LENGTH) {
+	    throw new Error(User.LASTNAME_LENGTH_ERROR_MESSAGE);
+	  }
 
 		this.#lastName = lastName;
 	}
@@ -251,7 +261,9 @@ export class User {
 	 * @throws {Error} If the password is not between 6 and 20 characters long
 	 */
 	#setPassword(password) {
-		// TODO: Implement validation
+		if (password.length < User.PASSWORD_MIN_LENGTH || password.length > User.PASSWORD_MAX_LENGTH) {
+			throw new Error(User.PASSWORD_LENGTH_ERROR_MESSAGE);
+		  }
 
 		this.#password = password;
 	}
