@@ -68,7 +68,9 @@ export class Comment {
 	 * @throws {Error} If the content is less than 3 or more than 200 characters long.
 	 */
 	#setContent(content) {
-		// TODO: Implement validation
+		if (content.length < Comment.CONTENT_MIN_LENGTH || content.length > Comment.CONTENT_MAX_LENGTH) {
+			throw new Error(Comment.CONTENT_LENGTH_ERROR_MESSAGE);
+		  }
 
 		this.#content = content;
 	}
@@ -81,7 +83,7 @@ export class Comment {
 	#setAuthor(author) {
 		if (author === null) {
 			throw new Error('Author cannot be null');
-		}
+		  }
 		
 		this.#author = author;
 	}
