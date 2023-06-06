@@ -32,8 +32,6 @@ export class CommandFactory {
 		const commandParameters = this.#extractCommandParameters(commandLine);
 
 		switch (commandType) {
-			case CommandType.ShowUsers:
-				return new ShowUsersCommand(commandParameters, this.#repository);
 			case CommandType.RegisterUser:
 				return new RegisterUserCommand(commandParameters, this.#repository);
 			case CommandType.Login:
@@ -49,8 +47,7 @@ export class CommandFactory {
 			case CommandType.RemoveComment:
 				return new RemoveCommentCommand(commandParameters, this.#repository);
 			case CommandType.ShowUsers:
-				// ToDo
-				throw new Error("Not implemented");
+				return new ShowUsersCommand(commandParameters, this.#repository);
 			case CommandType.ShowVehicles:
 				return new ShowVehiclesCommand(commandParameters, this.#repository);
 			default:
