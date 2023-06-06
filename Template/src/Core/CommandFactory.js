@@ -10,6 +10,7 @@ import { ShowVehiclesCommand } from "../Commands/ShowVehiclesCommand.js";
 import { InvalidUserInputException } from "../Exceptions/InvalidUserInputException.js";
 import { Repository } from "./Repository.js";
 import { CommandType } from "./CommandType.js";
+import { ShowUsersCommand } from "../Commands/ShowUsersCommand.js";
 
 export class CommandFactory {
 	#repository;
@@ -31,6 +32,8 @@ export class CommandFactory {
 		const commandParameters = this.#extractCommandParameters(commandLine);
 
 		switch (commandType) {
+			case CommandType.ShowUsers:
+				return new ShowUsersCommand(commandParameters, this.#repository);
 			case CommandType.RegisterUser:
 				return new RegisterUserCommand(commandParameters, this.#repository);
 			case CommandType.Login:
