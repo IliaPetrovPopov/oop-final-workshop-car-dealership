@@ -33,6 +33,7 @@ export class Vehicle {
 	  this.make = make;
 	  this.model = model;
 	  this.price = price;
+	  this.determineTypeAndWheels();
 	}
 
 	get make() {

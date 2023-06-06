@@ -20,7 +20,6 @@ export class Truck extends Vehicle {
 	 */
 	constructor(make, model, price, weightCapacity) {
 	  super(make, model, price);
-	  this.determineTypeAndWheels();
 	  this.weightCapacity = weightCapacity;
 	  this.#vehicleSpecifics = `Weight Capacity: ${this.#weightCapacity}t`;
 	}

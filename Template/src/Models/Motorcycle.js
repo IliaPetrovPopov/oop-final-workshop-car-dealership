@@ -20,7 +20,6 @@ export class Motorcycle extends Vehicle {
 	 */
 	constructor(make, model, price, category) {
 	  super(make, model, price);
-	  this.determineTypeAndWheels();
 	  this.category = category;
 	  this.#vehicleSpecifics = `Category: ${this.#category}`;
 	}
