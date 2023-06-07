@@ -1,3 +1,6 @@
+/* eslint-disable no-mixed-spaces-and-tabs */
+/* eslint-disable no-tabs */
+
 import { Vehicle } from './Vehicle.js';
 
 export class Motorcycle extends Vehicle {
@@ -20,6 +23,7 @@ export class Motorcycle extends Vehicle {
 	 */
 	constructor(make, model, price, category) {
 	  super(make, model, price);
+	  this.determineTypeAndWheels();
 	  this.category = category;
 	  this.#vehicleSpecifics = `Category: ${this.#category}`;
 	}

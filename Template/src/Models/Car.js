@@ -1,6 +1,9 @@
+/* eslint-disable no-mixed-spaces-and-tabs */
+/* eslint-disable no-tabs */
 import { Vehicle } from './Vehicle.js';
 
 export class Car extends Vehicle {
+
 	#seats;
 	#vehicleSpecifics;
 
@@ -19,6 +22,7 @@ export class Car extends Vehicle {
 	 */
 	constructor(make, model, price, seats) {
 	  super(make, model, price);
+	  this.determineTypeAndWheels();
 	  this.seats = seats;
 	  this.#vehicleSpecifics = `Seats: ${this.#seats}`;
 	}

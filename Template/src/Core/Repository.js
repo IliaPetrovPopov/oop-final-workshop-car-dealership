@@ -1,3 +1,6 @@
+/* eslint-disable no-mixed-spaces-and-tabs */
+/* eslint-disable no-tabs */
+
 import { EntityNotFoundException } from '../Exceptions/EntityNotFoundException.js';
 import { User } from '../Models/User.js';
 import { Car } from '../Models/Car.js';
@@ -15,26 +18,26 @@ export class Repository {
 	#loggedUser;
 
 	constructor() {
-		this.#users = [];
-		this.#loggedUser = null;
+	  this.#users = [];
+	  this.#loggedUser = null;
 	}
 
 	/**
 	 * Gets all the users
 	 *
-	 * @returns {User[]}
+	 * @return {User[]}
 	 */
 	get users() {
-		return [...this.#users];
+	  return [...this.#users];
 	}
 
 	/**
 	 * Gets the authenticated user
 	 *
-	 * @returns {User}
+	 * @return {User}
 	 */
 	get loggedUser() {
-		return this.#loggedUser;
+	  return this.#loggedUser;
 	}
 
 	/**
@@ -46,10 +49,10 @@ export class Repository {
 	 * @param {string} password
 	 * @param {Role} role
 	 *
-	 * @returns {User}
+	 * @return {User}
 	 */
 	createUser(username, firstName, lastName, password, role) {
-		return new User(username, firstName, lastName, password, role);
+	  return new User(username, firstName, lastName, password, role);
 	}
 
 	/**
@@ -57,12 +60,12 @@ export class Repository {
 	 *
 	 * @param {User} user
 	 *
-	 * @returns {void}
+	 * @return {void}
 	 */
 	addUser(user) {
-		if (!this.users.includes(user)) {
-			this.users.push(user);
-		}
+	  if (!this.#users.includes(user)) {
+	    this.#users.push(user);
+	  }
 	}
 
 	/**
@@ -70,12 +73,12 @@ export class Repository {
 	 *
 	 * @param {string} username
 	 *
-	 * @returns {boolean}
+	 * @return {boolean}
 	 */
 	userExists(username) {
-		return this.users.some(user =>
-			user.username.toLowerCase() === username.toLowerCase()
-		);
+	  return this.users.some(user =>
+	    user.username.toLowerCase() === username.toLowerCase()
+	  );
 	}
 
 	/**
@@ -83,20 +86,20 @@ export class Repository {
 	 *
 	 * @param {string} username
 	 *
-	 * @returns {User}
+	 * @return {User}
 	 *  or
 	 * @throws {EntityNotFoundException}
 	 */
 	getUser(username) {
-		const user = this.users.find(
-			user => user.username.toLowerCase() === username.toLowerCase()
-		);
+	  const user = this.users.find(
+	    user => user.username.toLowerCase() === username.toLowerCase()
+	  );
 
-		if (user !== undefined) {
-			return user;
-		} else {
-			throw new EntityNotFoundException(`There is no user with username ${username}!`);
-		}
+	  if (user !== undefined) {
+	    return user;
+	  } else {
+	    throw new EntityNotFoundException(`There is no user with username ${username}!`);
+	  }
 	}
 
 	/**
@@ -104,22 +107,22 @@ export class Repository {
 	 *
 	 * @param {User} user
 	 *
-	 * @returns {void}
+	 * @return {void}
 	 */
 	logIn(user) {
-		this.#loggedUser = user;
+	  this.#loggedUser = user;
 	}
 
 	/**
 	 * Logs out the authenticated user
 	 *
-	 * @returns {void}
+	 * @return {void}
 	 */
 	logOut() {
-		this.#loggedUser = null;
+	  this.#loggedUser = null;
 	}
 
-	/** 
+	/**
 	 * Creates a new car
 	 *
 	 * @param {string} make
@@ -127,13 +130,13 @@ export class Repository {
 	 * @param {number} price
 	 * @param {number} seats
 	 *
-	 * @returns {Car}
+	 * @return {Car}
 	*/
 	createCar(make, model, price, seats) {
-		return new Car(make, model, price, seats);
+	  return new Car(make, model, price, seats);
 	}
 
-	/** 
+	/**
 	 * Creates a new motorcycle
 	 *
 	 * @param {string} make
@@ -141,24 +144,24 @@ export class Repository {
 	 * @param {number} price
 	 * @param {string} category
 	 *
-	 * @returns {Motorcycle}
+	 * @return {Motorcycle}
 	*/
 	createMotorcycle(make, model, price, category) {
-		return new Motorcycle(make, model, price, category);
+	  return new Motorcycle(make, model, price, category);
 	}
 
-	/** 
+	/**
 	 * Creates a new truck
-	 * 
+	 *
 	 * @param {string} make
 	 * @param {string} model
 	 * @param {number} price
 	 * @param {number} weightCapacity
 	 *
-	 * @returns {Truck}
+	 * @return {Truck}
 	*/
 	createTruck(make, model, price, weightCapacity) {
-		return new Truck(make, model, price, weightCapacity);
+	  return new Truck(make, model, price, weightCapacity);
 	}
 
 	/**
@@ -167,9 +170,9 @@ export class Repository {
 	 * @param {string} content
 	 * @param {string} author
 	 *
-	 * @returns {Comment}
+	 * @return {Comment}
 	*/
 	createComment(content, author) {
-		return new Comment(content, author);
+	  return new Comment(content, author);
 	}
 }

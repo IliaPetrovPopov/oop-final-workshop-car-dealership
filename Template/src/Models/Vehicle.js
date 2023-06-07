@@ -1,4 +1,7 @@
+/* eslint-disable no-mixed-spaces-and-tabs */
+/* eslint-disable no-tabs */
 import { Comment } from './Comment.js';
+import { VehicleType } from './VehicleType.js';
 
 export class Vehicle {
 
@@ -33,7 +36,6 @@ export class Vehicle {
 	  this.make = make;
 	  this.model = model;
 	  this.price = price;
-	  this.determineTypeAndWheels();
 	}
 
 	get make() {
